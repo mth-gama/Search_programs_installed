@@ -7,9 +7,11 @@ from numpy import pad
 from Functions import *
 import winapps
 
-# Mostra todos os itens instalados 
-# for item in winapps.list_installed():
-#     print(item.name)
+# Author: Matheus Gama
+# E-mail: matheusgama821@gmail.com
+# LinkedIn: https://www.linkedin.com/in/matheus-gama-032516181
+# GitHub: https://github.com/mth-gama
+
 
 def app():
     name.set(f'non-existent app "{app_name.get()}"')

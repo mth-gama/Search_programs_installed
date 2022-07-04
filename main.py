@@ -14,13 +14,14 @@ import os
 # E-mail: matheusgama821@gmail.com
 # LinkedIn: https://www.linkedin.com/in/matheus-gama-032516181
 # GitHub: https://github.com/mth-gama
-# Mostra todos os itens instalados 
+# Mostra todos os itens instalados
+
 
 def show_all_apps():
     row_line = 0
     indice_num = 1
     root_2 = Tk()
-    root_2.geometry(center(root_2, 432,270))
+    root_2.geometry(center(root_2, 432, 270))
     root_2.configure(bg='#FFDEAD')
     root_2.title('SHOW ALL APPS')
     root_2.resizable(False, False)
@@ -30,19 +31,20 @@ def show_all_apps():
         width=400
     )
     my_scroll = Scrollbar(
-         root_2,
-        orient= VERTICAL,
+        root_2,
+        orient=VERTICAL,
         command=corpo_canvas.yview,
     )
-    corpo_canvas.configure(yscrollcommand= my_scroll.set)
-    corpo_canvas.bind('<Configure>', lambda e: corpo_canvas.configure(scrollregion= corpo_canvas.bbox('all')))
-    corpo_2 = Frame (
+    corpo_canvas.configure(yscrollcommand=my_scroll.set)
+    corpo_canvas.bind('<Configure>', lambda e: corpo_canvas.configure(
+        scrollregion=corpo_canvas.bbox('all')))
+    corpo_2 = Frame(
         corpo_canvas,
         bg='#FFDEAD',
     )
-    corpo_canvas.create_window((0,0), window=corpo_2, anchor=W)
-    corpo_canvas.pack(side=LEFT,anchor=N)
-    my_scroll.pack(side=RIGHT,fill= Y)
+    corpo_canvas.create_window((0, 0), window=corpo_2, anchor=W)
+    corpo_canvas.pack(side=LEFT, anchor=N)
+    my_scroll.pack(side=RIGHT, fill=Y)
     for item in winapps.list_installed():
         indice = Label(
             corpo_2,
@@ -50,8 +52,8 @@ def show_all_apps():
             font="Verdana 10 bold",
             bg='#FFDEAD',
             fg='#8B4513'
-        ).grid(row= row_line, column= 0, sticky=NW)
-        
+        ).grid(row=row_line, column=0, sticky=NW)
+
         apps = Label(
             corpo_2,
             text=item.name,
@@ -60,17 +62,19 @@ def show_all_apps():
             fg='#8B4513',
             wraplength=400,
             justify=LEFT
-        ).grid(row= row_line, column= 1, sticky=NW)
-        row_line = row_line +1
-        indice_num = indice_num +1
-        
+        ).grid(row=row_line, column=1, sticky=NW)
+        row_line = row_line + 1
+        indice_num = indice_num + 1
+
     root_2.mainloop()
+
+
 def app():
     if app_name.get() == '':
         pg.alert('Please enter with app valid')
     elif app_name.get() == 'Game Master':
         pg.alert('YOU ACTIVED O EASTEREGG\nCONGRATULATION!!!')
-        os.startfile(r'Search_programs_installed\EasterEgg.exe')
+        os.startfile(r'EasterEgg.exe')
     else:
         name.set(f'non-existent app "{app_name.get()}"')
         version.set(f'non-existent app "{app_name.get()}"')
@@ -78,17 +82,16 @@ def app():
         publisher.set(f'non-existent app "{app_name.get()}"')
         uninstall_string.set(f'non-existent app "{app_name.get()}"')
         for item in winapps.search_installed(app_name.get()):
-            name.set(item.name) 
-            version.set(item.version) 
-            Install_date.set(item.install_date) 
-            publisher.set(item.publisher) 
-            uninstall_string.set(item.uninstall_string) 
+            name.set(item.name)
+            version.set(item.version)
+            Install_date.set(item.install_date)
+            publisher.set(item.publisher)
+            uninstall_string.set(item.uninstall_string)
 
-        
 
-# Window configurations      
+# Window configurations
 root = Tk()
-root.geometry(center(root, 432,140))
+root.geometry(center(root, 432, 140))
 root.configure(bg='#FFDEAD')
 root.resizable(False, True)
 root.title('SEARCH PROGRAMS')
@@ -106,114 +109,114 @@ container_top = Frame(
 container_top.grid(row=0, columnspan=2)
 Label(
     container_top,
-    text = 'Enter app name: ',
-    font = 'Verdana 10 bold',
-    bg = '#FFDEAD',
+    text='Enter app name: ',
+    font='Verdana 10 bold',
+    bg='#FFDEAD',
     fg='#8B4513'
-).grid(row = 1, column=0,sticky=W)
+).grid(row=1, column=0, sticky=W)
 
-Frame (
+Frame(
     container_top,
     width=159,
     height=0,
     bg='#8B4513',
-).grid(row=2,column=1, sticky=NW)
+).grid(row=2, column=1, sticky=NW)
 
 Label(
     root,
-    text = 'Name:',
-    font = 'Verdana 10',
-    bg = '#FFDEAD',
+    text='Name:',
+    font='Verdana 10',
+    bg='#FFDEAD',
     fg='#8B4513'
-).grid(row = 3, sticky=NW)
+).grid(row=3, sticky=NW)
 
 Label(
     root,
-    text = 'Version:',
-    font = 'Verdana 10',
-    bg = '#FFDEAD',
+    text='Version:',
+    font='Verdana 10',
+    bg='#FFDEAD',
     fg='#8B4513'
-).grid(row = 4, sticky=NW)
+).grid(row=4, sticky=NW)
 
 Label(
     root,
-    text = 'Install date:',
-    font = 'Verdana 10',
-    bg = '#FFDEAD',
+    text='Install date:',
+    font='Verdana 10',
+    bg='#FFDEAD',
     fg='#8B4513'
-).grid(row = 5, sticky=NW)
+).grid(row=5, sticky=NW)
 
 Label(
     root,
-    text = 'Publisher:',
-    font = 'Verdana 10',
-    bg = '#FFDEAD',
+    text='Publisher:',
+    font='Verdana 10',
+    bg='#FFDEAD',
     fg='#8B4513'
-).grid(row = 6, sticky=NW)
+).grid(row=6, sticky=NW)
 
 Label(
     root,
-    text = 'Unistall string:',
-    font = 'Verdana 10',
-    bg = '#FFDEAD',
+    text='Unistall string:',
+    font='Verdana 10',
+    bg='#FFDEAD',
     fg='#8B4513',
-).grid(row = 7, sticky=NW)
+).grid(row=7, sticky=NW)
 
 # Text variables
-Label (
+Label(
     root,
     text="",
-    textvariable= name,
+    textvariable=name,
     font='Verdana 10 bold',
     bg='#FFDEAD',
     fg='#8B4513',
     justify=LEFT,
     wraplength=300
-).grid(row=3 , column=1, sticky=W)
+).grid(row=3, column=1, sticky=W)
 
-Label (
+Label(
     root,
     text="",
-    textvariable= version,
+    textvariable=version,
     font='Verdana 10 bold',
     bg='#FFDEAD',
     fg='#8B4513',
     justify=LEFT,
     wraplength=300
-).grid(row=4 , column=1, sticky=W)
+).grid(row=4, column=1, sticky=W)
 
-Label (
+Label(
     root,
     text="",
-    textvariable= Install_date,
+    textvariable=Install_date,
     font='Verdana 10 bold',
     bg='#FFDEAD',
     fg='#8B4513',
     justify=LEFT,
     wraplength=300
-).grid(row=5 , column=1, sticky=W)
+).grid(row=5, column=1, sticky=W)
 
-Label (
+Label(
     root,
     text="",
-    textvariable= publisher,
+    textvariable=publisher,
     font='Verdana 10 bold',
     bg='#FFDEAD',
     fg='#8B4513',
     justify=LEFT,
     wraplength=300
-).grid(row=6 , column=1, sticky=W)
+).grid(row=6, column=1, sticky=W)
 
-Label (
+Label(
     root,
     text="",
-    textvariable= uninstall_string,
+    textvariable=uninstall_string,
     font='Verdana 10 bold',
     bg='#FFDEAD',
     fg='#8B4513',
     justify=LEFT,
     wraplength=300
-).grid(row=7 , column=1, sticky=NW)
+).grid(row=7, column=1, sticky=NW)
 
 app_name = Entry(
     container_top,
@@ -245,6 +248,6 @@ btn_show_all = Button(
     height=1,
     bg='#B8860B',
     fg='#8B4513',
-    command= show_all_apps
+    command=show_all_apps
 ).grid(row=1, column=3, sticky=NW, padx=4, pady=1)
 root.mainloop()
